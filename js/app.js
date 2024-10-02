@@ -3,13 +3,12 @@ function adicionar () {
     let produtoCompleto = document.getElementById('produto').value;
     let nomeProduto = produtoCompleto.match(/^\S+\s*/)[0];
     let valorProduto = produtoCompleto.match(/R\$(\d+)/)[1];
-    let valorProdutoRS = produtoCompleto.match(/R\$(\d+)/)[0];
     let quantidade = parseInt(document.getElementById('quantidade').value);
     let valor = valorProduto * quantidade
 
     console.log(`${valorProduto} x ${quantidade} = ${valor}`);
 
-    adicionarNaLista (quantidade, nomeProduto, valorProdutoRS);
+    adicionarNaLista (quantidade, nomeProduto, valorProduto);
 
     somarNoTotal (quantidade, valorProduto);
 
@@ -17,7 +16,8 @@ function adicionar () {
 
 function adicionarNaLista (qtd, nome, valor) {
     let listaDeProdutosHTML = document.querySelector('.carrinho__produtos__produto');
-    listaDeProdutosHTML.innerHTML += `<br><span class="texto-azul">${qtd}x</span> ${nome} <span class="texto-azul">${valor}</span>`
+    let subtotal = qtd * valor;
+    listaDeProdutosHTML.innerHTML += `<br><span class="texto-azul">${qtd}x</span> ${nome} <span class="texto-azul">R$${subtotal}</span>`
 }
 
 function somarNoTotal (qtd, valor) {
