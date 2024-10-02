@@ -9,7 +9,6 @@ function adicionar () {
 
     console.log(`${valorProduto} x ${quantidade} = ${valor}`);
 
-    let listaDeProdutos = document.querySelector('.carrinho__produtos__produto').textContent;
     adicionarNaLista (quantidade, nomeProduto, valorProdutoRS);
 
     somarNoTotal (quantidade, valorProduto);
@@ -18,8 +17,7 @@ function adicionar () {
 
 function adicionarNaLista (qtd, nome, valor) {
     let listaDeProdutosHTML = document.querySelector('.carrinho__produtos__produto');
-    let qtdX = `${qtd}x`
-    listaDeProdutosHTML.innerHTML += `<br><span class="texto-azul">${qtdX}</span> ${nome} <span class="texto-azul">${valor}</span>`
+    listaDeProdutosHTML.innerHTML += `<br><span class="texto-azul">${qtd}x</span> ${nome} <span class="texto-azul">${valor}</span>`
 }
 
 function somarNoTotal (qtd, valor) {
