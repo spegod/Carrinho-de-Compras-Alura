@@ -29,3 +29,9 @@ function somarNoTotal (qtd, valor) {
     valorTotalBruto.innerHTML = `Total: <span class="texto-azul" id="valor-total">R$${valorTotalFinal}</span>`;
     console.log(valorTotalBruto);
 }
+
+function limpar () {
+    document.getElementById('quantidade').value = '';
+    document.querySelector('.carrinho__produtos__produto').innerHTML = '';
+    document.querySelector('.carrinho__total').innerHTML = `Total: <span class="texto-azul" id="valor-total">R$0</span>`;
+}
