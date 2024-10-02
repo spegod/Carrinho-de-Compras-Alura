@@ -5,12 +5,20 @@ function adicionar () {
     let valorProduto = produtoCompleto.match(/R\$(\d+)/)[1];
     let quantidade = parseInt(document.getElementById('quantidade').value);
     let valor = valorProduto * quantidade
+    
+    if (quantidade < 1 || document.getElementById('quantidade').value === '') {
+        alert('Erro: quantidade inválida');
+        document.getElementById('quantidade').value = ''
+        return;
+    }
 
     console.log(`${valorProduto} x ${quantidade} = ${valor}`);
 
     adicionarNaLista (quantidade, nomeProduto, valorProduto);
 
     somarNoTotal (quantidade, valorProduto);
+
+    document.getElementById('quantidade').value = ''
 
 }
 
@@ -29,7 +37,6 @@ function somarNoTotal (qtd, valor) {
 }
 
 function limpar () {
-    document.getElementById('quantidade').value = '';
     document.querySelector('.carrinho__produtos__produto').innerHTML = '';
     document.querySelector('.carrinho__total').innerHTML = `Total: <span class="texto-azul" id="valor-total">R$0</span>`;
 }
